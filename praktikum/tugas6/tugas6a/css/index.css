@@ -1,0 +1,19 @@
+
+h1 {
+    text-align: center;
+    color: white;
+}
+body {
+    background-color: black;
+}
+.row {
+    float: left;
+}
+img {
+    padding: 2px;
+}
+h2 {
+    color: white;
+    margin-left: 100px;
+    padding-top: 5px;
+}
