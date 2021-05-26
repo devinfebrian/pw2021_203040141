@@ -1,0 +1,37 @@
+body {
+  background-color: teal;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+  padding-top: 200px;
+}
+
+.tombol-kembali {
+  display: block;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  background: #ff652f;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.tombol-kembali:hover {
+  background-color: white;
+  color: #ff652f;
+}
+
+p {
+  padding-left: 5px;
+}
+
+h5 {
+  padding-left: 5px;
+}
+
+

@@ -1,0 +1,32 @@
+body {
+  background-color: teal;
+}
+
+.login {
+  display: block;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  background: #ff652f;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.login:hover {
+  background-color: white;
+  color: #ff652f;
+}
+
+.footer p {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.footer {
+  background-color: gray;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+

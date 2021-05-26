@@ -1,0 +1,26 @@
+body {
+  background-color: teal;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  background: #ff652f;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+button:hover {
+  background-color: white;
+  color: #ff652f;
+}
+
