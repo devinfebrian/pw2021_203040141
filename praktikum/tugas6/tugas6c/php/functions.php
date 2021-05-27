@@ -63,7 +63,7 @@ function ubah($data)
                     name = '$name',
                     description = '$description',
                     price = '$price',
-                    category = '$category',
+                    category = '$category'
                     WHERE id = '$id'
                     ";
 
@@ -94,5 +94,3 @@ function registrasi($data) {
 
     return mysqli_affected_rows($conn);
 }
-?>
-
