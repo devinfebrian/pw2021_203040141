@@ -2,10 +2,7 @@
 // fungsi untuk melakukan koneksi ke database
 function koneksi()
 {
-    $conn = mysqli_connect("localhost", "root", "");
-    mysqli_select_db($conn, "pw_tubes_203040141");
-
-    return $conn;
+    return mysqli_connect('localhost', 'root', '', 'pw_tubes_203040141');
 }
 
 // function untuk melakukan query dan memasukkannya kedalam array
@@ -13,6 +10,11 @@ function query($query)
 {
     $conn = koneksi();
     $result = mysqli_query($conn, $query);
+
+    // jika hasilnya hanya 1 data
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
+    }
 
     $fs = [];
     while ($fashion = mysqli_fetch_assoc($result)) {
@@ -139,15 +141,16 @@ function ubah($data)
         $picture = $previous_img;
     }
 
-    $query = "UPDATE fashion2 SET
-                    picture = '$picture',
-                    name = '$name',
-                    description = '$description',
-                    price = '$price',
-                    category = '$category',
-                    WHERE id = '$id'";
+    $query = "UPDATE fashion SET
+                picture = '$picture',
+                name = '$name',
+                description = '$description',
+                price = '$price',
+                category = '$category'
+              WHERE id = $id";
 
-    mysqli_query($conn, $query);
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    echo mysqli_error($conn);
     return mysqli_affected_rows($conn);
 }
 

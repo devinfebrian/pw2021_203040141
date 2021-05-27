@@ -5,6 +5,7 @@ if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit;
 }
+
 require 'functions.php';
 
 if (!isset($_GET['id'])) {
@@ -14,7 +15,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$f = query("SELECT * FROM fashion WHERE id = $id")[0];
+$fs = query("SELECT * FROM fashion WHERE id = $id");
 
 if (isset($_POST['ubah'])) {
     if (ubah($_POST) > 0) {
@@ -30,6 +31,7 @@ if (isset($_POST['ubah'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,40 +53,50 @@ if (isset($_POST['ubah'])) {
                     <div class="col-md-12">
                         <div class="card-body">
                             <form action="" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="id" value="<?= $f['id']; ?>">
+                                <input type="hidden" name="id" value="<?= $fs['id']; ?>">
                                 <ul>
                                     <li>
-                                        <input type="hidden" name="previous_img" value="<?= $f['picture']; ?>">
-                                        <label for="picture">Picture :</label>
-                                        <img src="../assets/img/<?= $f['picture']; ?>" width="150px" style="display: block;" class="img-preview"><br>
-                                        <input type="file" name="picture" class="picture" onchange="previewImage()">
+                                        <input type="hidden" name="previous_img" value="<?= $fs['picture']; ?>">
+                                        <label>
+                                            Picture :
+                                            <input type="file" name="picture" class="picture" onchange="previewImage()">
+                                        </label>
+                                        <img src="../assets/img/<?= $fs['picture']; ?>" width="150px" style="display: block;" class="img-preview"><br>
                                     </li><br>
                                     <li>
-                                        <label for="name">Name :</label>
-                                        <input type="text" name="name" required value="<?= $f['name']; ?>"><br><br>
+                                        <label>
+                                            Name :
+                                            <input type="text" name="name" autofocus required value="<?= $fs['name']; ?>"><br>
+                                        </label>
                                     </li>
                                     <li>
-                                        <label for="description">Description :</label>
-                                        <input type="text" name="description" required value="<?= $f['description']; ?>"><br><br>
+                                        <label>
+                                            Description :
+                                            <input type="text" name="description" required value="<?= $fs['description']; ?>"><br><br>
+                                        </label>
                                     </li>
                                     <li>
-                                        <label for="price">Price :</label>
-                                        <input type="text" name="price" required value="<?= $f['price']; ?>"><br><br>
+                                        <label>
+                                            Price :
+                                            <input type="text" name="price" required value="<?= $fs['price']; ?>"><br><br>
+                                        </label>
                                     </li>
                                     <li>
-                                        <label for="category">Category :</label>
-                                        <select name="category" value="<?= $f['category']; ?>">
+                                        <label>Category :</label>
+                                        <select name="category" value="<?= $fs['category']; ?>">
                                             <option value="">-- Choose Category --</option>
                                             <option value="Hoodie">Hoodie</option>
                                             <option value="Denim">Denim</option>
                                         </select>
+                                    </li><br>
+                                    <li>
+                                        <button type="submit" name="ubah">Update</button>
+                                    </li><br>
+                                    <li>
+                                        <button type="submit">
+                                            <a href="../index.php" style="text-decoration: none; color: black;">Back</a>
+                                        </button>
                                     </li>
-                                    <br>
-                                    <button type="submit" name="ubah">Update Data</button>
-                                    <br>
-                                    <button type="submit">
-                                        <a href="../index.php" style="text-decoration: none; color: black;">Back</a>
-                                    </button>
                                 </ul>
                             </form>
                         </div>

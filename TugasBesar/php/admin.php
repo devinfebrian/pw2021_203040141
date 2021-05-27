@@ -22,7 +22,7 @@ if (isset($_POST['cari'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/min.css">
 </head>
 
 <body>
@@ -60,12 +60,28 @@ if (isset($_POST['cari'])) {
                             </div>
                             <div class="col-s12-m12">
                                 <div class="card-body">
-                                    <h5 class="card-title">Name : <?= $f["name"]; ?></h5>
-                                    <p class="card-text"> Description : <?= $f["description"]; ?></p>
-                                    <p class="card-text">Price : <?= $f["price"]; ?></p>
-                                    <p class="card-text"><small class="kategori text-muted">Category : <?= $f["category"]; ?></small></p>
-                                    <a href="ubah.php?id=<?= $f['id'] ?>"><button>Edit</button></a><br>
-                                    <a href="hapus.php?id=<?= $f['id'] ?>" onclick="return confirm('Hapus Data??')"><button>Delete</button></a>
+                                    <table>
+                                        <ul>
+                                            <li>
+                                                <h5 class="card-title">Name : <?= $f["name"]; ?></h5>
+                                            </li>
+                                            <li>
+                                                <p class="card-text"> Description : <?= $f["description"]; ?></p>
+                                            </li>
+                                            <li>
+                                                <p class="card-text">Price : <?= $f["price"]; ?></p>
+                                            </li>
+                                            <li>
+                                                <p class="card-text"><small class="kategori text-muted">Category : <?= $f["category"]; ?></small></p>
+                                            </li>
+                                            <li>
+                                                <a href="ubah.php?id=<?= $f['id'] ?>"><button>Edit</button></a><br>
+                                            </li>
+                                            <li>
+                                                <a href="hapus.php?id=<?= $f['id'] ?>" onclick="return confirm('Hapus Data??')"><button>Delete</button></a>
+                                            </li>
+                                        </ul>
+                                    </table>
                                 </div>
                             </div>
                         </div>

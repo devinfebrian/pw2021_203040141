@@ -2,6 +2,10 @@ body {
   background-color: teal;
 }
 
+table, li {
+  list-style: none;
+}
+
 .grid {
   display: grid;
   place-items: center;
