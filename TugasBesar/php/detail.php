@@ -21,6 +21,7 @@ $id = $_GET['id'];
 // melakukan query dengan parameter id yang diambil dari url
 $fashion = query("SELECT * FROM fashion WHERE id = $id");
 ?>
+
 <html lang="en">
 
 <head>
