@@ -2,7 +2,10 @@
 // fungsi untuk melakukan koneksi ke database
 function koneksi()
 {
-    return mysqli_connect('localhost', 'root', '', 'pw_tubes_203040141');
+    $conn = mysqli_connect("localhost", "pw20141", "#Akun#203040141#") or die("koneksi ke DB gagal");
+    mysqli_select_db($conn, "pw20141_tubes_203040141") or die("Database salah!");
+
+    return $conn;
 }
 
 // function untuk melakukan query dan memasukkannya kedalam array
