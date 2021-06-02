@@ -26,7 +26,7 @@ if (isset($_POST['cari'])) {
 </head>
 
 <body>
-    <div class="container">
+    <div class="center">
         <div class="top">
             <div class="logout"><br>
                 <a href="logout.php"><button>Logout</button></a>
@@ -42,16 +42,11 @@ if (isset($_POST['cari'])) {
     </div>
 
     <!-- Isi -->
-
-    <?php if (empty($fashion)) : ?>
-        <tr>
-            <td colspan="7">
-                <h1>Data Not Found</h1>
-            </td>
-        </tr>
-    <?php else : ?>
-        <?php foreach ($fashion as $f) : ?>
-            <div class="container">
+    <div class="container">
+        <?php if (empty($fashion)) : ?>
+            <h1>Data Not Found</h1>
+        <?php else : ?>
+            <?php foreach ($fashion as $f) : ?>
                 <div class="grid">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row">
@@ -75,8 +70,8 @@ if (isset($_POST['cari'])) {
                                                 <p class="card-text"><small class="kategori text-muted">Category : <?= $f["category"]; ?></small></p>
                                             </li>
                                             <li>
-                                                <a href="ubah.php?id=<?= $f['id'] ?>"><button>Edit</button></a><br>
-                                            </li>
+                                                <a href="ubah.php?id=<?= $f['id'] ?>"><button>Edit</button></a>
+                                            </li><br>
                                             <li>
                                                 <a href="hapus.php?id=<?= $f['id'] ?>" onclick="return confirm('Hapus Data??')"><button>Delete</button></a>
                                             </li>
@@ -87,9 +82,9 @@ if (isset($_POST['cari'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>
